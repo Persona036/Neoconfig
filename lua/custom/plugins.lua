@@ -61,6 +61,7 @@ local plugins = {
     end,
     opts = {labeled_modes = "nx"},
   },
+  {"ggandor/leap.nvim"},
 
 
   -- To make a plugin not be loaded
