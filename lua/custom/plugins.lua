@@ -44,16 +44,23 @@ local plugins = {
 
   {
     "windwp/nvim-autopairs",
-    lazy = false
   },
   {
     "windwp/nvim-ts-autotag",
-    lazy = false
   },
   {
-    "ggandor/leap.nvim",
-    lazy=false,
-  }
+    "ggandor/flit.nvim",
+    keys = function()
+
+      local ret = {}
+
+      for _, key in ipairs({"f", "F", "t", "T"}) do 
+        ret[#ret + 1] = {key, mode = {"n", "x", "o"}, des = key}
+      end
+      return ret
+    end,
+    opts = {labeled_modes = "nx"},
+  },
 
 
   -- To make a plugin not be loaded
