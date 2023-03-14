@@ -43,11 +43,18 @@ local plugins = {
   },
 
   {
-    "windwp/nvim-autopairs"
+    "windwp/nvim-autopairs",
+    lazy = false
   },
   {
-    "windwp/nvim-ts-autotag"
+    "windwp/nvim-ts-autotag",
+    lazy = false
   },
+  {
+    "ggandor/leap.nvim",
+    lazy=false,
+  }
+
 
   -- To make a plugin not be loaded
   -- {
