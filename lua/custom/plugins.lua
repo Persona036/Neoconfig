@@ -2,7 +2,6 @@ local overrides = require("custom.configs.overrides")
 
 ---@type NvPluginSpec[]
 local plugins = {
-
   -- Override plugin definition options
 
   {
@@ -25,6 +24,7 @@ local plugins = {
   -- overrde plugin configs
   {
     "nvim-treesitter/nvim-treesitter",
+    dependencies = {"windwp/nvim-ts-autotag"},
     opts = overrides.treesitter,
   },
 
@@ -43,12 +43,6 @@ local plugins = {
   },
 
   {
-    "windwp/nvim-autopairs",
-  },
-  {
-    "windwp/nvim-ts-autotag",
-  },
-  {
     "ggandor/flit.nvim",
     keys = function()
 
@@ -62,8 +56,45 @@ local plugins = {
     opts = {labeled_modes = "nx"},
   },
   {"ggandor/leap.nvim"},
+{
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
 
+    {
+    "zbirenbaum/copilot.lua",
+    -- Lazy load when event occurs. Events are triggered
+    -- as mentioned in:
+    -- https://vi.stackexchange.com/a/4495/20389
+    event = "InsertEnter",
+    suggestion = {enabled = false},
+    panel = {enabled = false},
+    -- You can also have it load at immediately at
+    -- startup by commenting above and uncommenting below:
+    lazy = false,
+    opts = overrides.copilot,
+  },
 
+   {
+  "zbirenbaum/copilot-cmp",
+  after = { "copilot.lua" },
+  lazy=false,
+  config = function ()
+    require("copilot_cmp").setup()
+  end
+  },
+
+  {"MunifTanjim/prettier.nvim",
+  lazy=false,
+  },
+
+  {"windwp/nvim-ts-autotag",
+   event = "InsertEnter",
+  config = function ()
+  require("nvim-ts-autotag").setup()
+    end,
+  },
+  
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

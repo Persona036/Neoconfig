@@ -7,16 +7,28 @@ M.treesitter = {
     "html",
     "css",
     "javascript",
+    "typescript",
     "c",
     "rust",
     "markdown",
     "markdown_inline",
+  },
+  autotag = {
+    enable = true,
   },
   indent = {
     enable = true,
     disable = {
       "python"
     },
+  },
+}
+
+M.copilot = {
+  -- Possible configurable fields can be found on:
+  -- https://github.com/zbirenbaum/copilot.lua#setup-and-configuration
+  suggestion = {
+    auto_trigger = true,
   },
 }
 

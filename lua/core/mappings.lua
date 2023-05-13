@@ -2,6 +2,7 @@
 
 local M = {}
 
+
 M.general = {
   i = {
     -- go to  beginning and end
@@ -65,17 +66,23 @@ M.general = {
   },
 }
 
+M.copilot = {
+  plugin = true,
+  i = {
+    ["<S-z>"] =
+      { function ()
+        require('copilot').accept()
+      end,
+      "accept copilot suggestion"
+      },
+ },
+}
+
 M.tabufline = {
   plugin = true,
 
   n = {
     -- cycle through buffers
-    ["<TAB>"] = {
-      function()
-        require("nvchad_ui.tabufline").tabuflineNext()
-      end,
-      "goto next buffer",
-    },
 
     ["<S-Tab>"] = {
       function()

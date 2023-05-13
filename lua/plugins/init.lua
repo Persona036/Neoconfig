@@ -157,6 +157,7 @@ local default_plugins = {
       -- autopairing of (){}[] etc
       {
         "windwp/nvim-autopairs",
+        lazy=false,
         opts = {
           fast_wrap = {},
           disable_filetype = { "TelescopePrompt", "vim" },
